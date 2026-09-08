@@ -46,6 +46,9 @@ jobs:
           docker tag $IMAGE_NAME:${{ github.sha }} $IMAGE_NAME:latest
           docker push $IMAGE_NAME:latest
 
+      - name: Debug image name
+        run: echo "Image is $IMAGE_NAME"
+
   deploy:
     needs: build-test-scan
     runs-on: ubuntu-latest
